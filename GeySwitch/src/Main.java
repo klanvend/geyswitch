@@ -22,7 +22,7 @@ public class Main {
 		}
 		if(m.start==1)
 		{
-			p=new PlayerCizici(m.p);
+			p=new PlayerCizici(m.p,m.oyuncusayisi);
 			JFrame pencere2=new JFrame("GeySwitch");
 			pencere2.setVisible(true);
 			pencere.dispose();

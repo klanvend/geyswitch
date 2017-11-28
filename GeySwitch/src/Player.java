@@ -5,8 +5,8 @@ import java.awt.Rectangle;
 public class Player {
 	int x,y,width,height,a=0,b=0,tus;
 	Rectangle r,d,c;
-	int hiz=5;
-	int gravitation=3;
+	int hiz=12;
+	int gravitation=7;
 	public Player(int tus,int x, int y, int width, int height) {
 			r=new Rectangle(x,y,width,height);
 			this.tus=tus;
@@ -29,7 +29,7 @@ public class Player {
 		Rectangle gecici=new Rectangle(r);
 		gecici.setLocation((int)r.getX(),(int)r.getY()+gravitation);
 		boolean cakisma=false;
-		for(int i=0;i<oyuncusayisi-1;i++)
+		for(int i=0;i<oyuncusayisi;i++)
 		{
 			if(i!=index) {
 			if(gecici.intersects(digerleri[i].getRectangle())||gecici.intersects(c)||gecici.intersects(d))

@@ -20,12 +20,12 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 	int a=0,start=0;
 	public int oyuncusayisi;
 	int harf;
-	PlayerCizici pc;
 	String b8t,b9t,b10t,b11t,b12t,b13t,b14t;
+	int t;
 	public Menu() 
 	{
 		super();
-		oyuncusayisi=2;
+		oyuncusayisi=7;
 		this.setFocusable(true);
 		this.setBackground(Color.DARK_GRAY);
 		/*l1=new JLabel("Yeni tusa basiniz."); 
@@ -49,13 +49,13 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 		b6.setBackground(Color.MAGENTA);
 		b7=new JButton("7");
 		b7.setBackground(Color.YELLOW);
-		b8=new JButton("1");
-		b9=new JButton("2");
-		b10=new JButton("3");
-		b11=new JButton("4");
-		b12=new JButton("5");
-		b13=new JButton("6");
-		b14=new JButton("7");
+		b8=new JButton("C");
+		b9=new JButton("M");
+		b10=new JButton("CTRL");
+		b11=new JButton("RIGHT");
+		b12=new JButton("A");
+		b13=new JButton("Num 3");
+		b14=new JButton("L");
 		b2.setBounds(300, 100, 120, 120);
 		b3.setBounds(500, 100, 120, 120);
 		b4.setBounds(700, 100, 120, 120);
@@ -134,8 +134,16 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 		p=new Player[oyuncusayisi];
 		for(int i=0;i<oyuncusayisi;i++)
 		{
-			p[i]=new Player(48+i,20,(150+100*i),50,50);
+			if (i==0) {t = 67; }
+			if (i==1) {t = 77; }
+			if (i==2) {t = 17; }
+			if (i==3) {t = 39; }
+			if (i==4) {t = 65; }
+			if (i==5) {t = 99; }
+			if (i==6) {t = 76; }
+			p[i]=new Player(t,20,(75+100*i),50,50);
 		}
+		oyuncusayisi=2;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -218,7 +226,6 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 			b13.setVisible(false);
 			b14.setVisible(false);
 			oyuncusayisi=2;
-			oyuncuYarat();
 			break;
 		case "3":
 		
@@ -230,7 +237,6 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 			b13.setVisible(false);
 			b14.setVisible(false);
 			oyuncusayisi=3;
-			oyuncuYarat();
 			break;
 		case "4":
 		
@@ -242,7 +248,6 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 			b13.setVisible(false);
 			b14.setVisible(false);
 			oyuncusayisi=4;
-			oyuncuYarat();
 			break;
 		case "5":
 		
@@ -254,7 +259,6 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 			b13.setVisible(false);
 			b14.setVisible(false);
 			oyuncusayisi=5;
-			oyuncuYarat();
 			break;
 		case "6":
 		
@@ -266,7 +270,6 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 			b13.setVisible(true);
 			b14.setVisible(false);
 			oyuncusayisi=6;
-			oyuncuYarat();
 			break;
 		case "7":
 		
@@ -278,7 +281,6 @@ public class Menu extends JPanel implements KeyListener,ActionListener{
 			b13.setVisible(true);
 			b14.setVisible(true);
 			oyuncusayisi=7;
-			oyuncuYarat();
 			break;
 		}
 		System.out.println("Oyuncu sayisi= " + oyuncusayisi);

@@ -13,7 +13,7 @@ public class PlayerCizici extends JPanel implements KeyListener,ActionListener{
 	Rectangle d,c;
 	Player[] p;
 	int oyuncusayisi;
-	public PlayerCizici(Player[] g) 
+	public PlayerCizici(Player[] g,int s) 
 	{
 	super();
 	addKeyListener(this);
@@ -21,7 +21,7 @@ public class PlayerCizici extends JPanel implements KeyListener,ActionListener{
 	d=new Rectangle(0, 0,1600,50);
 	c=new Rectangle(0,800,1600,50);
 	diziKlonla(g);
-	oyuncusayisi=p.length+1;
+	oyuncusayisi=s;
 	System.out.println(oyuncusayisi);
 	t1.start();
 	}
@@ -36,7 +36,7 @@ public class PlayerCizici extends JPanel implements KeyListener,ActionListener{
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		for(int i=0;i<oyuncusayisi-1;i++)
+		for(int i=0;i<oyuncusayisi;i++)
 		{
 			p[i].ekranaCiz(g);
 			repaint();
@@ -51,7 +51,7 @@ public class PlayerCizici extends JPanel implements KeyListener,ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		for(int i=0;i<oyuncusayisi-1;i++)
+		for(int i=0;i<oyuncusayisi;i++)
 		{
 			p[i].HaraketEt();
 			p[i].GravityEffect(p,oyuncusayisi,i);
@@ -59,7 +59,7 @@ public class PlayerCizici extends JPanel implements KeyListener,ActionListener{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		for(int i=0;i<oyuncusayisi-1;i++) {
+		for(int i=0;i<oyuncusayisi;i++) {
 		if(e.getKeyCode()==p[i].tus)
 			{p[i].Reverse();
 			System.out.println("reverse");
